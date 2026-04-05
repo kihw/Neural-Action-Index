@@ -6,6 +6,7 @@ from pathlib import Path
 
 from backend.core.indexer.loader import load_resources, validate_resources
 from backend.core.schema.models import RecallNode, Resource, SearchHit
+from backend.core.search.service import SearchService
 
 
 class ResourceCatalog:

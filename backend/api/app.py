@@ -58,6 +58,7 @@ def get_resource(id: str) -> dict:
 @app.get("/search")
 def search(q: str = Query(..., min_length=1), limit: int = Query(20, ge=1, le=100)) -> dict:
     hits = catalog.search(q, limit=limit)
+    mode = "hybrid" if catalog.vector_search_enabled else "lexical"
     return {
         "query": q,
         "total": len(hits),
