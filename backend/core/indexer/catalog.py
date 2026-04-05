@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections import defaultdict
 from pathlib import Path
 
-from backend.core.indexer.loader import load_resources, validate_cross_references
+from backend.core.indexer.loader import load_resources, validate_resources
 from backend.core.schema.models import RecallNode, Resource, SearchHit
 
 
@@ -12,15 +12,41 @@ class ResourceCatalog:
         self.root = root
         self.index_dir = root / "resources" / "index"
         self._resources: dict[str, Resource] = {}
+        self._by_tag: dict[str, set[str]] = defaultdict(set)
+        self._by_category: dict[str, set[str]] = defaultdict(set)
+        self._by_theme: dict[str, set[str]] = defaultdict(set)
 
     def refresh(self) -> None:
         loaded = load_resources(self.index_dir)
-        validate_cross_references(loaded)
+        validate_resources(self.root, loaded)
         self._resources = {resource.id: resource for resource in loaded}
+        self._rebuild_indexes()
+
+    def _rebuild_indexes(self) -> None:
+        self._by_tag.clear()
+        self._by_category.clear()
+        self._by_theme.clear()
+
+        for resource in self._resources.values():
+            self._by_category[resource.category].add(resource.id)
+            self._by_theme[resource.theme].add(resource.id)
+            for tag in resource.tags:
+                self._by_tag[tag].add(resource.id)
 
     @property
     def resources(self) -> dict[str, Resource]:
         return self._resources
+
+    def by_tag(self, tag: str) -> list[Resource]:
+        return [self._resources[resource_id] for resource_id in sorted(self._by_tag.get(tag, set()))]
+
+    def by_category(self, category: str) -> list[Resource]:
+        ids = sorted(self._by_category.get(category, set()))
+        return [self._resources[resource_id] for resource_id in ids]
+
+    def by_theme(self, theme: str) -> list[Resource]:
+        ids = sorted(self._by_theme.get(theme, set()))
+        return [self._resources[resource_id] for resource_id in ids]
 
     def recall(self) -> dict[str, list[RecallNode]]:
         by_type: dict[str, int] = defaultdict(int)
