@@ -1,0 +1,18 @@
+id: demo.engineering.api.002
+type: doc
+title: "Guide API versioning strategy v2"
+category: engineering
+theme: api
+description: "Exemple 2 pour engineering/api: guide api versioning strategy."
+content_ref: resources/demo_vault/content/engineering/api_002.md
+tags:
+  - engineering
+  - api
+  - demo-vault
+  - doc
+related:
+  - demo.engineering.api.001
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

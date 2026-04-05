@@ -1,0 +1,18 @@
+id: demo.legal.compliance.034
+type: doc
+title: "Data processing agreement summary v2"
+category: legal
+theme: compliance
+description: "Exemple 34 pour legal/compliance: data processing agreement summary."
+content_ref: resources/demo_vault/content/legal/compliance_034.md
+tags:
+  - legal
+  - compliance
+  - demo-vault
+  - doc
+related:
+  - demo.legal.compliance.033
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

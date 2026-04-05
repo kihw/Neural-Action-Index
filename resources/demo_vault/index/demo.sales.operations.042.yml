@@ -1,0 +1,18 @@
+id: demo.sales.operations.042
+type: config
+title: "CRM stage mapping baseline v2"
+category: sales
+theme: operations
+description: "Exemple 42 pour sales/operations: crm stage mapping baseline."
+content_ref: resources/demo_vault/content/sales/operations_042.yaml
+tags:
+  - sales
+  - operations
+  - demo-vault
+  - config
+related:
+  - demo.sales.operations.041
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

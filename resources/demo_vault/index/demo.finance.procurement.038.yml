@@ -1,0 +1,18 @@
+id: demo.finance.procurement.038
+type: action
+title: "Vendor approval workflow v2"
+category: finance
+theme: procurement
+description: "Exemple 38 pour finance/procurement: vendor approval workflow."
+content_ref: resources/demo_vault/content/finance/procurement_038.md
+tags:
+  - finance
+  - procurement
+  - demo-vault
+  - action
+related:
+  - demo.finance.procurement.037
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

@@ -1,0 +1,18 @@
+id: demo.hr.hiring.043
+type: template
+title: "Structured interview scorecard v1"
+category: hr
+theme: hiring
+description: "Exemple 43 pour hr/hiring: structured interview scorecard."
+content_ref: resources/demo_vault/content/hr/hiring_043.md
+tags:
+  - hr
+  - hiring
+  - demo-vault
+  - template
+related:
+  - demo.sales.operations.042
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

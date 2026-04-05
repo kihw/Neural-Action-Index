@@ -1,0 +1,18 @@
+id: demo.product.roadmap.014
+type: doc
+title: "Quarterly roadmap framing guide v2"
+category: product
+theme: roadmap
+description: "Exemple 14 pour product/roadmap: quarterly roadmap framing guide."
+content_ref: resources/demo_vault/content/product/roadmap_014.md
+tags:
+  - product
+  - roadmap
+  - demo-vault
+  - doc
+related:
+  - demo.product.roadmap.013
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

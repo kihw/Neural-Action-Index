@@ -1,0 +1,18 @@
+id: demo.hr.onboarding.045
+type: action
+title: "New hire day-1 setup checklist v1"
+category: hr
+theme: onboarding
+description: "Exemple 45 pour hr/onboarding: new hire day-1 setup checklist."
+content_ref: resources/demo_vault/content/hr/onboarding_045.md
+tags:
+  - hr
+  - onboarding
+  - demo-vault
+  - action
+related:
+  - demo.hr.hiring.044
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

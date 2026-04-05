@@ -1,0 +1,18 @@
+id: demo.research.competitive.056
+type: reference
+title: "Competitor tracking framework v2"
+category: research
+theme: competitive
+description: "Exemple 56 pour research/competitive: competitor tracking framework."
+content_ref: resources/demo_vault/content/research/competitive_056.md
+tags:
+  - research
+  - competitive
+  - demo-vault
+  - reference
+related:
+  - demo.research.competitive.055
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

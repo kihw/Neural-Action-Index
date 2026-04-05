@@ -1,0 +1,18 @@
+id: demo.security.iam.015
+type: config
+title: "Baseline IAM policy set v1"
+category: security
+theme: iam
+description: "Exemple 15 pour security/iam: baseline iam policy set."
+content_ref: resources/demo_vault/content/security/iam_015.yaml
+tags:
+  - security
+  - iam
+  - demo-vault
+  - config
+related:
+  - demo.product.roadmap.014
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

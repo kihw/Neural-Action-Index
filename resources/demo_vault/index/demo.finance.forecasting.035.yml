@@ -1,0 +1,18 @@
+id: demo.finance.forecasting.035
+type: doc
+title: "Monthly forecast assumptions guide v1"
+category: finance
+theme: forecasting
+description: "Exemple 35 pour finance/forecasting: monthly forecast assumptions guide."
+content_ref: resources/demo_vault/content/finance/forecasting_035.md
+tags:
+  - finance
+  - forecasting
+  - demo-vault
+  - doc
+related:
+  - demo.legal.compliance.034
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

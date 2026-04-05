@@ -1,0 +1,18 @@
+id: demo.ops.observability.024
+type: config
+title: "Service SLO starter config v2"
+category: ops
+theme: observability
+description: "Exemple 24 pour ops/observability: service slo starter config."
+content_ref: resources/demo_vault/content/ops/observability_024.yaml
+tags:
+  - ops
+  - observability
+  - demo-vault
+  - config
+related:
+  - demo.ops.observability.023
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

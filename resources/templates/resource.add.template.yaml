@@ -1,0 +1,32 @@
+# Template standard pour ajouter une ressource NAI.
+# Copier ce fichier vers resources/index/<id>.yml et adapter chaque champ.
+id: team.domain.topic.name
+# type: action|code|doc|config|template|reference
+type: doc
+title: "Titre clair orienté action"
+category: domain
+theme: topic
+description: "Résumé court (1 phrase) décrivant la valeur de la ressource."
+content_ref: resources/docs/example.md
+
+variables:
+  - name: env
+    kind: string
+    required: true
+    default: prod
+    description: "Contexte d'exécution principal"
+
+tags:
+  - domain:engineering
+  - theme:topic
+  - intent:how-to
+  - audience:team
+  - maturity:mvp
+
+related:
+  - domain.topic.related_resource
+
+metadata:
+  author: team-name
+  version: 0.1.0
+  updated_at: 2026-04-05

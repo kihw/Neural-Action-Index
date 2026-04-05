@@ -1,0 +1,18 @@
+id: demo.design.ux_research.027
+type: doc
+title: "Usability test protocol v1"
+category: design
+theme: ux_research
+description: "Exemple 27 pour design/ux_research: usability test protocol."
+content_ref: resources/demo_vault/content/design/ux_research_027.md
+tags:
+  - design
+  - ux_research
+  - demo-vault
+  - doc
+related:
+  - demo.ops.runbooks.026
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

@@ -1,0 +1,18 @@
+id: demo.data.pipelines.010
+type: code
+title: "Airflow DAG quality checks v2"
+category: data
+theme: pipelines
+description: "Exemple 10 pour data/pipelines: airflow dag quality checks."
+content_ref: resources/demo_vault/content/data/pipelines_010.py
+tags:
+  - data
+  - pipelines
+  - demo-vault
+  - code
+related:
+  - demo.data.pipelines.009
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

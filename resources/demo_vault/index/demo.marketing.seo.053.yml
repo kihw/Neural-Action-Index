@@ -1,0 +1,18 @@
+id: demo.marketing.seo.053
+type: doc
+title: "SEO page optimization checklist v1"
+category: marketing
+theme: seo
+description: "Exemple 53 pour marketing/seo: seo page optimization checklist."
+content_ref: resources/demo_vault/content/marketing/seo_053.md
+tags:
+  - marketing
+  - seo
+  - demo-vault
+  - doc
+related:
+  - demo.marketing.content_ops.052
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

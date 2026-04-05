@@ -1,0 +1,18 @@
+id: demo.marketing.content_ops.051
+type: template
+title: "Campaign brief template v1"
+category: marketing
+theme: content_ops
+description: "Exemple 51 pour marketing/content_ops: campaign brief template."
+content_ref: resources/demo_vault/content/marketing/content_ops_051.md
+tags:
+  - marketing
+  - content_ops
+  - demo-vault
+  - template
+related:
+  - demo.support.kb.050
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05
