@@ -3,6 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from backend.core.indexer.catalog import ResourceCatalog
 from backend.core.resolver.service import resolve_resource_content
@@ -12,7 +14,16 @@ ROOT = Path(__file__).resolve().parents[2]
 catalog = ResourceCatalog(ROOT)
 catalog.refresh()
 
+
 app = FastAPI(title="Neural Action Index", version="0.1.0")
+
+FRONTEND_DIR = ROOT / "frontend"
+app.mount("/frontend", StaticFiles(directory=FRONTEND_DIR), name="frontend")
+
+
+@app.get("/")
+def index() -> FileResponse:
+    return FileResponse(FRONTEND_DIR / "index.html")
 
 
 @app.get("/health")
