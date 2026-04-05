@@ -1,0 +1,14 @@
+id: docs.system.logs.rotation_policy
+type: doc
+title: Rotation policy
+category: system
+theme: logs
+description: Log rotation policy and retention defaults
+content_ref: resources/docs/log_rotation_policy.md
+related:
+  - system.logs.rotate
+  - config.system.logs.default
+metadata:
+  author: ops-team
+  version: 1.0.0
+  updated_at: 2026-04-05

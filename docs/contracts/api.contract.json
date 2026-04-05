@@ -1,0 +1,98 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Neural Action Index API Contract (MVP)",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Health check",
+            "content": {
+              "application/json": {
+                "example": {"status": "ok"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recall": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Global overview by type/category"
+          }
+        }
+      }
+    },
+    "/tree": {
+      "get": {
+        "parameters": [
+          {
+            "name": "path",
+            "in": "query",
+            "schema": {"type": "string"},
+            "description": "category or category/theme"
+          }
+        ],
+        "responses": {
+          "200": {"description": "Hierarchical subtree"},
+          "400": {"description": "Invalid path"}
+        }
+      }
+    },
+    "/resource/{resource_id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "resource_id",
+            "in": "path",
+            "required": true,
+            "schema": {"type": "string"}
+          }
+        ],
+        "responses": {
+          "200": {"description": "Resource metadata"},
+          "404": {"description": "Not found"}
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "parameters": [
+          {"name": "q", "in": "query", "required": true, "schema": {"type": "string"}},
+          {"name": "limit", "in": "query", "schema": {"type": "integer", "minimum": 1, "maximum": 100}}
+        ],
+        "responses": {
+          "200": {"description": "Search results"}
+        }
+      }
+    },
+    "/related/{resource_id}": {
+      "get": {
+        "parameters": [
+          {"name": "resource_id", "in": "path", "required": true, "schema": {"type": "string"}}
+        ],
+        "responses": {
+          "200": {"description": "Linked resources"},
+          "404": {"description": "Not found"}
+        }
+      }
+    },
+    "/resolve/{resource_id}": {
+      "get": {
+        "parameters": [
+          {"name": "resource_id", "in": "path", "required": true, "schema": {"type": "string"}}
+        ],
+        "responses": {
+          "200": {"description": "Resolved source content"},
+          "404": {"description": "Not found"},
+          "500": {"description": "Broken content_ref"}
+        }
+      }
+    }
+  }
+}

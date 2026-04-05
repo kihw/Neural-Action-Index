@@ -1,0 +1,3 @@
+log_path: /var/log/myapp
+retention_days: 14
+archive_before_delete: true
