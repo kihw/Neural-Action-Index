@@ -4,8 +4,10 @@ from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
 
+from backend.core.errors import CoreError, ErrorCode
 from backend.core.indexer.catalog import ResourceCatalog
-from backend.core.resolver.service import resolve_resource_content, summarize_catalog
+from backend.core.resolver.service import detect_mime_type, resolve_resource_content, summarize_catalog
+from backend.core.schema.models import ApiTrace, ResourceResponse
 
 ROOT = Path(__file__).resolve().parents[2]
 catalog = ResourceCatalog(ROOT)
@@ -72,11 +74,18 @@ def resolve(id: str) -> dict:
         content = resolve_resource_content(resource, ROOT)
     except KeyError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
-    except FileNotFoundError as exc:
-        raise HTTPException(status_code=500, detail=str(exc)) from exc
+    except CoreError as exc:
+        status_code = 404 if exc.code == ErrorCode.MISSING_CONTENT_REF else 500
+        raise HTTPException(status_code=status_code, detail=exc.error.model_dump()) from exc
 
-    return {
-        "id": resource.id,
-        "content_ref": resource.content_ref,
-        "resolved": {"mime_type": "text/plain", "content": content},
-    }
+    mime_type = detect_mime_type(resource)
+
+    return ResourceResponse(
+        resource=resource,
+        resolved_content=content,
+        confidence=1.0,
+        trace=[
+            ApiTrace(source="catalog", detail="resource metadata fetched"),
+            ApiTrace(source="resolver", detail=f"resolved from {resource.content_ref} ({mime_type})"),
+        ],
+    )

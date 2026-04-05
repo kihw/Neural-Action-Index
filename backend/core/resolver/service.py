@@ -1,24 +1,31 @@
 from __future__ import annotations
 
+import mimetypes
 from pathlib import Path
 
-from backend.core.indexer.catalog import ResourceCatalog
+from backend.core.errors import CoreError, ErrorCode
 from backend.core.schema.models import Resource
+
+
+def detect_mime_type(resource: Resource) -> str:
+    mime, _ = mimetypes.guess_type(resource.content_ref)
+    return mime or "text/plain"
 
 
 def resolve_resource_content(resource: Resource, root: Path) -> str:
     path = resource.content_path(root)
     if not path.exists():
-        raise FileNotFoundError(f"content_ref does not exist for {resource.id}: {path}")
-    return path.read_text(encoding="utf-8")
+        raise CoreError(
+            ErrorCode.MISSING_CONTENT_REF,
+            "content_ref does not exist",
+            context={"resource_id": resource.id, "content_ref": resource.content_ref},
+        )
 
-
-def summarize_catalog(catalog: ResourceCatalog) -> dict:
-    recall = catalog.recall()
-    return {
-        "summary": {
-            "total": len(catalog.resources),
-            "by_type": {node.key: node.count for node in recall["types"]},
-            "by_category": {node.key: node.count for node in recall["categories"]},
-        }
-    }
+    try:
+        return path.read_text(encoding="utf-8")
+    except OSError as exc:
+        raise CoreError(
+            ErrorCode.CONTENT_READ_ERROR,
+            "Unable to read resource content",
+            context={"resource_id": resource.id, "content_ref": resource.content_ref},
+        ) from exc

@@ -44,9 +44,9 @@ class Resource(BaseModel):
     related: list[str] = Field(default_factory=list)
     metadata: Metadata = Field(default_factory=Metadata)
 
-    @field_validator("related")
+    @field_validator("tags", "related")
     @classmethod
-    def unique_related(cls, values: list[str]) -> list[str]:
+    def unique_values(cls, values: list[str]) -> list[str]:
         return list(dict.fromkeys(values))
 
     def content_path(self, root: Path) -> Path:
