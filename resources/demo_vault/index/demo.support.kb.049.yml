@@ -1,0 +1,18 @@
+id: demo.support.kb.049
+type: doc
+title: "Knowledge base article standards v1"
+category: support
+theme: kb
+description: "Exemple 49 pour support/kb: knowledge base article standards."
+content_ref: resources/demo_vault/content/support/kb_049.md
+tags:
+  - support
+  - kb
+  - demo-vault
+  - doc
+related:
+  - demo.support.triage.048
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

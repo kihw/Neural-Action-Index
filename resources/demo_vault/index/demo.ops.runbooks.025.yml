@@ -1,0 +1,18 @@
+id: demo.ops.runbooks.025
+type: action
+title: "Runbook service degradation v1"
+category: ops
+theme: runbooks
+description: "Exemple 25 pour ops/runbooks: runbook service degradation."
+content_ref: resources/demo_vault/content/ops/runbooks_025.md
+tags:
+  - ops
+  - runbooks
+  - demo-vault
+  - action
+related:
+  - demo.ops.observability.024
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

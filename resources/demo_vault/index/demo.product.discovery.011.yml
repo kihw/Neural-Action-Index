@@ -1,0 +1,18 @@
+id: demo.product.discovery.011
+type: template
+title: "Interview script for discovery calls v1"
+category: product
+theme: discovery
+description: "Exemple 11 pour product/discovery: interview script for discovery calls."
+content_ref: resources/demo_vault/content/product/discovery_011.md
+tags:
+  - product
+  - discovery
+  - demo-vault
+  - template
+related:
+  - demo.data.pipelines.010
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

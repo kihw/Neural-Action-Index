@@ -1,0 +1,18 @@
+id: demo.support.triage.047
+type: action
+title: "Priority triage matrix v1"
+category: support
+theme: triage
+description: "Exemple 47 pour support/triage: priority triage matrix."
+content_ref: resources/demo_vault/content/support/triage_047.md
+tags:
+  - support
+  - triage
+  - demo-vault
+  - action
+related:
+  - demo.hr.onboarding.046
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

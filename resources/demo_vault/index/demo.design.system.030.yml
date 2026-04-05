@@ -1,0 +1,18 @@
+id: demo.design.system.030
+type: reference
+title: "Design token governance reference v2"
+category: design
+theme: system
+description: "Exemple 30 pour design/system: design token governance reference."
+content_ref: resources/demo_vault/content/design/system_030.md
+tags:
+  - design
+  - system
+  - demo-vault
+  - reference
+related:
+  - demo.design.system.029
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

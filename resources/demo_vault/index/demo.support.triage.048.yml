@@ -1,0 +1,18 @@
+id: demo.support.triage.048
+type: action
+title: "Priority triage matrix v2"
+category: support
+theme: triage
+description: "Exemple 48 pour support/triage: priority triage matrix."
+content_ref: resources/demo_vault/content/support/triage_048.md
+tags:
+  - support
+  - triage
+  - demo-vault
+  - action
+related:
+  - demo.support.triage.047
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

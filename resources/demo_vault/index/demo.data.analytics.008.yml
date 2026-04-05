@@ -1,0 +1,18 @@
+id: demo.data.analytics.008
+type: doc
+title: "Definition of retention cohorts v2"
+category: data
+theme: analytics
+description: "Exemple 8 pour data/analytics: definition of retention cohorts."
+content_ref: resources/demo_vault/content/data/analytics_008.md
+tags:
+  - data
+  - analytics
+  - demo-vault
+  - doc
+related:
+  - demo.data.analytics.007
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

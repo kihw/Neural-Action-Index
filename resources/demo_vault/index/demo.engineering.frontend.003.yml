@@ -1,0 +1,18 @@
+id: demo.engineering.frontend.003
+type: code
+title: "React error boundary snippet v1"
+category: engineering
+theme: frontend
+description: "Exemple 3 pour engineering/frontend: react error boundary snippet."
+content_ref: resources/demo_vault/content/engineering/frontend_003.py
+tags:
+  - engineering
+  - frontend
+  - demo-vault
+  - code
+related:
+  - demo.engineering.api.002
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

@@ -14,6 +14,12 @@ uvicorn backend.api.app:app --reload
 ## Arborescence
 
 - `resources/index/`: métadonnées des ressources (YAML).
+- `resources/demo_vault/`: vault de démonstration (60 ressources multi-domaines) prêt pour ateliers et onboarding.
+- `resources/templates/resource.add.template.yaml`: template standard pour créer une nouvelle ressource.
+- `docs/product/resource-authoring-conventions.md`: conventions YAML, tags et summary.
+- `docs/product/vscode-extension-mvp.md`: définition du MVP extension VS Code (`search/open/insert`).
+- `docs/onboarding/team-onboarding-30min.md`: script d'onboarding équipe (30 minutes).
+- `docs/metrics/adoption-metrics.md` + `tools/metrics/compute_adoption_metrics.py`: mesure WAU/MAU, temps de retrieval et usage `resolve`.
 - `resources/scripts|code|docs|configs|templates/`: contenu réel référencé par `content_ref`.
 - `backend/core/schema/`: modèles de données.
 - `backend/core/indexer/`: chargement, validation, catalogage.

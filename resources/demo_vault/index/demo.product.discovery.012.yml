@@ -1,0 +1,18 @@
+id: demo.product.discovery.012
+type: template
+title: "Interview script for discovery calls v2"
+category: product
+theme: discovery
+description: "Exemple 12 pour product/discovery: interview script for discovery calls."
+content_ref: resources/demo_vault/content/product/discovery_012.md
+tags:
+  - product
+  - discovery
+  - demo-vault
+  - template
+related:
+  - demo.product.discovery.011
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

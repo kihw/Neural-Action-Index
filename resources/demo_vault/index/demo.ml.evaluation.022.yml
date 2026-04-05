@@ -1,0 +1,18 @@
+id: demo.ml.evaluation.022
+type: template
+title: "Model evaluation report template v2"
+category: ml
+theme: evaluation
+description: "Exemple 22 pour ml/evaluation: model evaluation report template."
+content_ref: resources/demo_vault/content/ml/evaluation_022.md
+tags:
+  - ml
+  - evaluation
+  - demo-vault
+  - template
+related:
+  - demo.ml.evaluation.021
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

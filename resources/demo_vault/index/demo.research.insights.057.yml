@@ -1,0 +1,18 @@
+id: demo.research.insights.057
+type: doc
+title: "Insight synthesis method v1"
+category: research
+theme: insights
+description: "Exemple 57 pour research/insights: insight synthesis method."
+content_ref: resources/demo_vault/content/research/insights_057.md
+tags:
+  - research
+  - insights
+  - demo-vault
+  - doc
+related:
+  - demo.research.competitive.056
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

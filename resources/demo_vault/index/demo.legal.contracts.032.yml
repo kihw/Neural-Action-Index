@@ -1,0 +1,18 @@
+id: demo.legal.contracts.032
+type: template
+title: "NDA review checklist template v2"
+category: legal
+theme: contracts
+description: "Exemple 32 pour legal/contracts: nda review checklist template."
+content_ref: resources/demo_vault/content/legal/contracts_032.md
+tags:
+  - legal
+  - contracts
+  - demo-vault
+  - template
+related:
+  - demo.legal.contracts.031
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

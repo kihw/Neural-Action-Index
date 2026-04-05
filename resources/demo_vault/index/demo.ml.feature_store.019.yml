@@ -1,0 +1,18 @@
+id: demo.ml.feature_store.019
+type: doc
+title: "Feature naming conventions v1"
+category: ml
+theme: feature_store
+description: "Exemple 19 pour ml/feature_store: feature naming conventions."
+content_ref: resources/demo_vault/content/ml/feature_store_019.md
+tags:
+  - ml
+  - feature_store
+  - demo-vault
+  - doc
+related:
+  - demo.security.incident_response.018
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

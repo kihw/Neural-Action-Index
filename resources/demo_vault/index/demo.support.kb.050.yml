@@ -1,0 +1,18 @@
+id: demo.support.kb.050
+type: doc
+title: "Knowledge base article standards v2"
+category: support
+theme: kb
+description: "Exemple 50 pour support/kb: knowledge base article standards."
+content_ref: resources/demo_vault/content/support/kb_050.md
+tags:
+  - support
+  - kb
+  - demo-vault
+  - doc
+related:
+  - demo.support.kb.049
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

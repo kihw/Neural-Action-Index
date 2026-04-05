@@ -1,0 +1,18 @@
+id: demo.it.asset_management.060
+type: config
+title: "Laptop provisioning baseline v2"
+category: it
+theme: asset_management
+description: "Exemple 60 pour it/asset_management: laptop provisioning baseline."
+content_ref: resources/demo_vault/content/it/asset_management_060.yaml
+tags:
+  - it
+  - asset_management
+  - demo-vault
+  - config
+related:
+  - demo.it.asset_management.059
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

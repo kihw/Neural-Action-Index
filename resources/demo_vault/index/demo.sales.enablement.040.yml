@@ -1,0 +1,18 @@
+id: demo.sales.enablement.040
+type: doc
+title: "Discovery call qualification rubric v2"
+category: sales
+theme: enablement
+description: "Exemple 40 pour sales/enablement: discovery call qualification rubric."
+content_ref: resources/demo_vault/content/sales/enablement_040.md
+tags:
+  - sales
+  - enablement
+  - demo-vault
+  - doc
+related:
+  - demo.sales.enablement.039
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

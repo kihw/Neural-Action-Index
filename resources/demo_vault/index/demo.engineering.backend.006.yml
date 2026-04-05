@@ -1,0 +1,18 @@
+id: demo.engineering.backend.006
+type: action
+title: "Checklist production deploy v2"
+category: engineering
+theme: backend
+description: "Exemple 6 pour engineering/backend: checklist production deploy."
+content_ref: resources/demo_vault/content/engineering/backend_006.md
+tags:
+  - engineering
+  - backend
+  - demo-vault
+  - action
+related:
+  - demo.engineering.backend.005
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05

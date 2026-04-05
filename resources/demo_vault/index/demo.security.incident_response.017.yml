@@ -1,0 +1,18 @@
+id: demo.security.incident_response.017
+type: action
+title: "Playbook suspicious login response v1"
+category: security
+theme: incident_response
+description: "Exemple 17 pour security/incident_response: playbook suspicious login response."
+content_ref: resources/demo_vault/content/security/incident_response_017.md
+tags:
+  - security
+  - incident_response
+  - demo-vault
+  - action
+related:
+  - demo.security.iam.016
+metadata:
+  author: demo-generator
+  version: 0.1.0
+  updated_at: 2026-04-05
