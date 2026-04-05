@@ -3,47 +3,56 @@ from __future__ import annotations
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
+from backend.core.errors import CoreError, ErrorCode
 from backend.core.indexer.catalog import ResourceCatalog
-from backend.core.resolver.service import resolve_resource_content
+from backend.core.resolver.service import detect_mime_type, resolve_resource_content, summarize_catalog
 from backend.core.schema.models import ApiTrace, ResourceResponse
 
 ROOT = Path(__file__).resolve().parents[2]
 catalog = ResourceCatalog(ROOT)
 catalog.refresh()
 
+
 app = FastAPI(title="Neural Action Index", version="0.1.0")
 
+FRONTEND_DIR = ROOT / "frontend"
+app.mount("/frontend", StaticFiles(directory=FRONTEND_DIR), name="frontend")
 
-@app.get("/health")
-def health() -> dict[str, str]:
-    return {"status": "ok"}
+
+@app.get("/")
+def index() -> FileResponse:
+    return FileResponse(FRONTEND_DIR / "index.html")
 
 
 @app.get("/recall")
 def recall() -> dict:
-    return catalog.recall()
+    return summarize_catalog(catalog)
 
 
 @app.get("/tree")
 def tree(path: str | None = Query(default=None, description="category[/theme]")) -> dict:
     try:
-        return catalog.tree(path)
+        raw_tree = catalog.tree(path)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
+    nodes = [
+        {"category": category, "themes": themes}
+        for category, themes in sorted(raw_tree.items())
+    ]
+    return {"path": path or "", "nodes": nodes}
 
-@app.get("/resource/{resource_id}", response_model=ResourceResponse)
-def get_resource(resource_id: str) -> ResourceResponse:
+
+@app.get("/resource/{id}")
+def get_resource(id: str) -> dict:
     try:
-        resource = catalog.get(resource_id)
+        resource = catalog.get(id)
     except KeyError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
-
-    return ResourceResponse(
-        resource=resource,
-        trace=[ApiTrace(source="catalog", detail="resource metadata fetched")],
-    )
+    return resource.model_dump()
 
 
 @app.get("/search")
@@ -52,40 +61,36 @@ def search(q: str = Query(..., min_length=1), limit: int = Query(20, ge=1, le=10
     mode = "hybrid" if catalog.vector_search_enabled else "lexical"
     return {
         "query": q,
-        "count": len(hits),
+        "total": len(hits),
         "results": [hit.model_dump() for hit in hits],
-        "trace": [
-            {
-                "source": f"{mode}-search",
-                "detail": "bm25 lexical scoring + optional sentence-transformer embeddings fusion",
-            }
-        ],
     }
 
 
-@app.get("/related/{resource_id}")
-def related(resource_id: str) -> dict:
+@app.get("/related/{id}")
+def related(id: str) -> dict:
     try:
-        resources = catalog.related(resource_id)
+        resources = catalog.related(id)
     except KeyError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
 
     return {
-        "id": resource_id,
-        "count": len(resources),
-        "results": [resource.model_dump() for resource in resources],
+        "id": id,
+        "related": [resource.model_dump() for resource in resources],
     }
 
 
-@app.get("/resolve/{resource_id}", response_model=ResourceResponse)
-def resolve(resource_id: str) -> ResourceResponse:
+@app.get("/resolve/{id}")
+def resolve(id: str) -> dict:
     try:
-        resource = catalog.get(resource_id)
+        resource = catalog.get(id)
         content = resolve_resource_content(resource, ROOT)
     except KeyError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
-    except FileNotFoundError as exc:
-        raise HTTPException(status_code=500, detail=str(exc)) from exc
+    except CoreError as exc:
+        status_code = 404 if exc.code == ErrorCode.MISSING_CONTENT_REF else 500
+        raise HTTPException(status_code=status_code, detail=exc.error.model_dump()) from exc
+
+    mime_type = detect_mime_type(resource)
 
     return ResourceResponse(
         resource=resource,
@@ -93,6 +98,6 @@ def resolve(resource_id: str) -> ResourceResponse:
         confidence=1.0,
         trace=[
             ApiTrace(source="catalog", detail="resource metadata fetched"),
-            ApiTrace(source="resolver", detail=f"resolved from {resource.content_ref}"),
+            ApiTrace(source="resolver", detail=f"resolved from {resource.content_ref} ({mime_type})"),
         ],
     )

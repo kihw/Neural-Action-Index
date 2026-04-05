@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neural Action Index UI</title>
+    <link rel="stylesheet" href="/frontend/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Neural Action Index</h1>
+      <p>Golden path: Search → Open → Resolve → Link</p>
+    </header>
+
+    <main class="layout">
+      <aside class="panel left-panel">
+        <h2>Catalogue</h2>
+        <input id="search-input" type="search" placeholder="Rechercher une ressource" />
+        <button id="search-btn">Search</button>
+        <div id="search-results" class="list"></div>
+        <h3>Arbre catégories / thèmes</h3>
+        <div id="tree" class="tree"></div>
+      </aside>
+
+      <section class="panel center-panel">
+        <div class="center-toolbar">
+          <h2 id="resource-title">Aucune ressource sélectionnée</h2>
+          <div class="toggle-group">
+            <button class="mode-btn active" data-mode="source">Source YAML</button>
+            <button class="mode-btn" data-mode="preview">Preview</button>
+            <button class="mode-btn" data-mode="form">Formulaire</button>
+          </div>
+        </div>
+        <div id="source-view" class="view active">
+          <div id="editor"></div>
+        </div>
+        <div id="preview-view" class="view">
+          <pre id="preview-content">Choisissez une ressource puis cliquez Resolve.</pre>
+        </div>
+        <div id="form-view" class="view">
+          <form id="resource-form"></form>
+        </div>
+      </section>
+
+      <aside class="panel right-panel">
+        <h2>Actions & contexte</h2>
+        <div class="golden-path">
+          <h3>Golden Path</h3>
+          <ol>
+            <li id="step-search">Search</li>
+            <li id="step-open">Open</li>
+            <li id="step-resolve">Resolve</li>
+            <li id="step-link">Link</li>
+          </ol>
+        </div>
+
+        <div class="actions">
+          <button id="open-btn" disabled>Open</button>
+          <button id="resolve-btn" disabled>Resolve</button>
+          <button id="link-btn" disabled>Link related</button>
+        </div>
+
+        <section>
+          <h3>Raisons de match</h3>
+          <ul id="match-reasons"></ul>
+        </section>
+
+        <section>
+          <h3>Related</h3>
+          <ul id="related-list"></ul>
+        </section>
+
+        <section>
+          <h3>Resolve trace</h3>
+          <ul id="resolve-trace"></ul>
+        </section>
+      </aside>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+    <script type="module" src="/frontend/app.js"></script>
+  </body>
+</html>

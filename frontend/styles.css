@@ -1,0 +1,155 @@
+:root {
+  color-scheme: light dark;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #0b1020;
+  color: #e7e9ee;
+}
+
+.app-header {
+  border-bottom: 1px solid #27304a;
+  padding: 0.75rem 1rem;
+  background: #111830;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.app-header p {
+  margin: 0.25rem 0 0;
+  color: #99a5c3;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 280px minmax(520px, 1fr) 340px;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  height: calc(100vh - 84px);
+  box-sizing: border-box;
+}
+
+.panel {
+  border: 1px solid #27304a;
+  border-radius: 8px;
+  background: #121a33;
+  padding: 0.75rem;
+  overflow: auto;
+}
+
+#search-input {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  border-radius: 6px;
+  border: 1px solid #415074;
+  background: #27365f;
+  color: #f0f4ff;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.list-item,
+.related-item,
+.trace-item {
+  border-bottom: 1px solid #263047;
+  padding: 0.5rem 0;
+}
+
+.tree ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.center-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+#resource-title {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.toggle-group {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.mode-btn.active,
+.path-complete {
+  background: #0e8f58;
+}
+
+.view {
+  display: none;
+  margin-top: 0.75rem;
+}
+
+.view.active {
+  display: block;
+}
+
+#editor {
+  height: calc(100vh - 230px);
+  border: 1px solid #2e3a58;
+}
+
+#preview-content {
+  white-space: pre-wrap;
+  background: #0d142a;
+  border: 1px solid #2e3a58;
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+
+#resource-form {
+  display: grid;
+  gap: 0.6rem;
+}
+
+#resource-form label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+}
+
+#resource-form input,
+#resource-form textarea,
+#search-input {
+  background: #0d142a;
+  border: 1px solid #2e3a58;
+  border-radius: 4px;
+  padding: 0.4rem;
+  color: #ecf0fa;
+}
+
+.golden-path ol {
+  padding-left: 1.1rem;
+}
+
+.golden-path li {
+  margin-bottom: 0.3rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
