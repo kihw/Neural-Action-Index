@@ -66,6 +66,7 @@ class SearchHit(BaseModel):
     theme: str
     description: str
     score: float
+    match_reasons: list[str] = Field(default_factory=list)
 
 
 class ApiTrace(BaseModel):

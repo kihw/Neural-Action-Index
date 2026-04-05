@@ -49,12 +49,16 @@ def get_resource(resource_id: str) -> ResourceResponse:
 @app.get("/search")
 def search(q: str = Query(..., min_length=1), limit: int = Query(20, ge=1, le=100)) -> dict:
     hits = catalog.search(q, limit=limit)
+    mode = "hybrid" if catalog.vector_search_enabled else "lexical"
     return {
         "query": q,
         "count": len(hits),
         "results": [hit.model_dump() for hit in hits],
         "trace": [
-            {"source": "lexical-mvp", "detail": "substring matching over indexed fields"}
+            {
+                "source": f"{mode}-search",
+                "detail": "bm25 lexical scoring + optional sentence-transformer embeddings fusion",
+            }
         ],
     }
 

@@ -5,6 +5,7 @@ from pathlib import Path
 
 from backend.core.indexer.loader import load_resources, validate_cross_references
 from backend.core.schema.models import RecallNode, Resource, SearchHit
+from backend.core.search.service import SearchService
 
 
 class ResourceCatalog:
@@ -12,15 +13,21 @@ class ResourceCatalog:
         self.root = root
         self.index_dir = root / "resources" / "index"
         self._resources: dict[str, Resource] = {}
+        self._search_service: SearchService | None = None
 
     def refresh(self) -> None:
         loaded = load_resources(self.index_dir)
         validate_cross_references(loaded)
         self._resources = {resource.id: resource for resource in loaded}
+        self._search_service = SearchService(loaded)
 
     @property
     def resources(self) -> dict[str, Resource]:
         return self._resources
+
+    @property
+    def vector_search_enabled(self) -> bool:
+        return bool(self._search_service and self._search_service.vector_enabled)
 
     def recall(self) -> dict[str, list[RecallNode]]:
         by_type: dict[str, int] = defaultdict(int)
@@ -70,38 +77,8 @@ class ResourceCatalog:
         return [self.get(related_id) for related_id in resource.related]
 
     def search(self, query: str, *, limit: int = 20) -> list[SearchHit]:
-        q = query.strip().lower()
-        if not q:
+        q = query.strip()
+        if not q or not self._search_service:
             return []
 
-        hits: list[SearchHit] = []
-        for resource in self._resources.values():
-            haystack = " ".join(
-                [
-                    resource.id,
-                    resource.title,
-                    resource.description,
-                    resource.category,
-                    resource.theme,
-                    " ".join(resource.tags),
-                ]
-            ).lower()
-            if q in haystack:
-                score = 0.5
-                if q in resource.id.lower():
-                    score += 0.25
-                if q in resource.title.lower():
-                    score += 0.25
-                hits.append(
-                    SearchHit(
-                        id=resource.id,
-                        title=resource.title,
-                        type=resource.type,
-                        category=resource.category,
-                        theme=resource.theme,
-                        description=resource.description,
-                        score=score,
-                    )
-                )
-
-        return sorted(hits, key=lambda hit: hit.score, reverse=True)[:limit]
+        return self._search_service.search(q, limit=limit)
