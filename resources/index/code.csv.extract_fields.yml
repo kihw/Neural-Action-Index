@@ -1,0 +1,15 @@
+id: code.csv.extract_fields
+type: code
+title: Extract CSV fields
+category: data
+theme: csv
+description: Python helper for extracting selected columns from a CSV file
+content_ref: resources/code/csv_extract_fields.py
+tags: [python, csv]
+related:
+  - docs.data.csv.extract
+  - action.data.csv.clean
+metadata:
+  author: data-team
+  version: 1.0.0
+  updated_at: 2026-04-05

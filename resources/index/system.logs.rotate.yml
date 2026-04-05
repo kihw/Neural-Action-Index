@@ -1,0 +1,22 @@
+id: system.logs.rotate
+type: action
+title: Rotate logs
+category: system
+theme: logs
+description: Rotate log files and apply retention policy
+content_ref: resources/scripts/rotate_logs.sh
+variables:
+  - name: log_path
+    kind: path
+    required: true
+  - name: retention_days
+    kind: int
+    required: true
+tags: [linux, maintenance]
+related:
+  - docs.system.logs.rotation_policy
+  - config.system.logs.default
+metadata:
+  author: ops-team
+  version: 1.0.0
+  updated_at: 2026-04-05

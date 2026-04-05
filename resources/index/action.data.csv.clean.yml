@@ -1,0 +1,14 @@
+id: action.data.csv.clean
+type: action
+title: Clean CSV records
+category: data
+theme: csv
+description: Bash script to normalize delimiter and trim noisy CSV rows
+content_ref: resources/scripts/clean_csv.sh
+related:
+  - code.csv.extract_fields
+  - docs.data.csv.extract
+metadata:
+  author: data-team
+  version: 1.0.0
+  updated_at: 2026-04-05

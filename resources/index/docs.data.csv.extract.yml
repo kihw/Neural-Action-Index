@@ -1,0 +1,14 @@
+id: docs.data.csv.extract
+type: doc
+title: CSV field extraction guide
+category: data
+theme: csv
+description: Documentation for extracting fields from CSV resources
+content_ref: resources/docs/csv_extract.md
+related:
+  - code.csv.extract_fields
+  - action.data.csv.clean
+metadata:
+  author: data-team
+  version: 1.0.0
+  updated_at: 2026-04-05

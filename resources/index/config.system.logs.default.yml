@@ -1,0 +1,13 @@
+id: config.system.logs.default
+type: config
+title: Default log config
+category: system
+theme: logs
+description: Default YAML parameters for log rotation
+content_ref: resources/configs/log_rotation_default.yaml
+related:
+  - system.logs.rotate
+metadata:
+  author: ops-team
+  version: 1.0.0
+  updated_at: 2026-04-05
